@@ -3,23 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pranjal Krishnanand | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pranjal Krishnanand | Premium Portfolio</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- GSAP & Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <style>
+        :root {
+            --bg-color: #050914;
+            --surface-color: rgba(255, 255, 255, 0.03);
+            --primary-glow: #00f3ff;
+            --secondary-glow: #bc13fe;
+            --text-main: #ffffff;
+            --text-muted: #a0aab2;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Interactive Background */
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        /* Typography & Utility */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            font-weight: 700;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--primary-glow);
+            border: 1px solid var(--primary-glow);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-glow);
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .typed-text {
+            font-size: 1.5rem;
+            font-family: var(--font-head);
+            color: var(--secondary-glow);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* About Section */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .about {
+            padding: 8rem 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Horizontal Academic Journey */
+        .academic-journey {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            margin-top: 2rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-glow) rgba(255,255,255,0.05);
+        }
+
+        .academic-item {
+            min-width: 250px;
+            padding: 1.5rem;
+            border-left: 3px solid var(--primary-glow);
+            background: rgba(255,255,255,0.02);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .academic-item h4 {
+            color: var(--primary-glow);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 8rem 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-head);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            width: 0; /* Animated via JS */
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .academic-journey {
+                flex-direction: column;
+                overflow-x: hidden;
+            }
+            .academic-item {
+                border-left: none;
+                border-top: 3px solid var(--primary-glow);
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Pranjal Krishnanand</h1>
-        <p>Welcome to my portfolio website.</p>
-    </header>
+    <!-- Interactive Circuit Background -->
+    <canvas id="network-canvas"></canvas>
 
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Building things at the intersection of engineering and creativity.</p>
-        </section>
-    </main>
+    <!-- Hero Section -->
+    <section class="hero container" id="home">
+        <div class="hero-content gs-reveal">
+            <h1>Engineering Tomorrow Through <br> <span class="highlight">Electronics, Innovation & Intelligence.</span></h1>
+            <span class="typed-text"></span>
+            <p>Welcome. I am Pranjal Krishnanand. I build and create at the intersection of complex hardware architecture, software engineering, and visual storytelling.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#about" class="btn btn-secondary">About Me</a>
+                <a href="mailto:contact@pranjalkrishnanand.xyz" class="btn btn-secondary">Contact</a>
+            </div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- About Section -->
+    <section class="about container" id="about">
+        <h2 class="section-title gs-reveal">About <span class="highlight">Me</span></h2>
+        
+        <div class="glass-panel gs-reveal">
+            <div class="about-text">
+                <p>As a 19-year-old Electronics and Communication Engineering student, I am fascinated by the unseen networks that power our world. From calculating transmission line equations and intrinsic impedance to understanding signal processing, my core lies in rigorous hardware engineering.</p>
+                <p>However, modern electronics require intelligent software. Through my structured curriculum, <strong>Mission FSC999</strong>, I have heavily invested in Software Development, mastering Java, object-oriented programming, and complex data structures. This allows me to seamlessly navigate Embedded Systems, IoT, Robotics, VLSI, and AI.</p>
+                <p>Beyond the technical, I have a deep passion for cinematography and visual composition. Shooting with a Sony alpha6100, I study manual mechanics—ISO, aperture, shutter speed—to capture astrophotography and short films. My current creative undertaking, <strong>Mission EV 143</strong>, explores framing and storytelling utilizing the immersive 1.43:1 IMAX aspect ratio. My ultimate goal is to fuse technical precision with flawless creative execution.</p>
+            </div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;" class="highlight">Academic & Development Journey</h3>
+            <div class="academic-journey">
+                <div class="academic-item">
+                    <h4>ECE Foundation</h4>
+                    <p>Advanced electronics, Wireless Communication, VLSI, and Signal Processing.</p>
+                </div>
+                <div class="academic-item">
+                    <h4>Mission FSC999</h4>
+                    <p>Computer Science transition focusing on Java, OOP, and algorithm optimization.</p>
+                </div>
+                <div class="academic-item">
+                    <h4>Mission EV 143</h4>
+                    <p>Cinematography, visual storytelling, and manual camera mechanics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills container" id="skills">
+        <h2 class="section-title gs-reveal">Technical <span class="highlight">Arsenal</span></h2>
+        
+        <div class="skills-grid">
+            <div class="glass-panel gs-reveal">
+                <h3 style="margin-bottom: 1.5rem;">Software & Logic</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Java & OOP</span> <span>95%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Data Structures</span> <span>85%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>AI & Software Dev</span> <span>80%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="80%"></div></div>
+                </div>
+            </div>
+
+            <div class="glass-panel gs-reveal">
+                <h3 style="margin-bottom: 1.5rem;">Hardware & Engineering</h3>
+                
+                <div class="skill-item">
+                    <div class="skill-info"><span>Embedded Systems & IoT</span> <span>90%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Transmission Lines & Impedance</span> <span>85%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="85%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>VLSI & Signal Processing</span> <span>75%</span></div>
+                    <div class="progress-bar"><div class="progress" data-width="75%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. Typed.js Initialization
+        new Typed('.typed-text', {
+            strings: ['Electronics Engineer.', 'Java Developer.', 'Cinematographer.', 'IoT Innovator.'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+
+        // 2. GSAP Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.gs-reveal').forEach(function(elem) {
+            gsap.fromTo(elem, 
+                { y: 50, opacity: 0 }, 
+                {
+                    y: 0, 
+                    opacity: 1, 
+                    duration: 1, 
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%", // Trigger when top of element hits 85% of viewport
+                    }
+                }
+            );
+        });
+
+        // Skill Progress Bar Animation
+        gsap.utils.toArray('.progress').forEach(function(bar) {
+            let targetWidth = bar.getAttribute('data-width');
+            gsap.to(bar, {
+                width: targetWidth,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".skills",
+                    start: "top 70%"
+                }
+            });
+        });
+
+        // 3. Interactive Particle/Circuit Background
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#00f3ff';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 70; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                // Draw connecting circuit lines
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 243, 255, ${1 - distance/120})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctxNormally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
