@@ -61,19 +61,18 @@ export default function AboutSection() {
             className="space-y-6"
           >
             <p className="text-zinc-300 text-lg leading-relaxed">
-              Hey! I&apos;m <strong className="text-white font-semibold">Pranjal Krishnanand</strong>,
-              a 19-year-old Electronics and Communication Engineering student with an
-              obsession for building things that exist at the edge of software and hardware.
+              I&apos;m <strong className="text-white font-semibold">Pranjal Krishnanand</strong>,
+              an Electronics and Communication Engineering student obsessed with building
+              things at the edge of software and hardware.
             </p>
             <p className="text-zinc-400 leading-relaxed">
-              My journey started with an Arduino kit and a dream of making robots. Today,
-              I design custom PCBs, program FPGAs in Verilog, deploy machine learning
-              models on microcontrollers, and build autonomous robotic systems.
+              My journey started with an Arduino kit and a dream of making robots, and today,
+              my work focuses on designing custom PCBs, programming FPGAs in Verilog, deploying
+              machine learning models on microcontrollers, and building autonomous robotic systems.
             </p>
             <p className="text-zinc-400 leading-relaxed">
-              I believe the most exciting engineering happens at the intersection of
-              disciplines — where a signal becomes data, data becomes intelligence, and
-              intelligence becomes action. That&apos;s the space I live in.
+              I believe the most exciting engineering happens where disciplines intersect —
+              where a signal becomes data, data becomes intelligence, and intelligence drives action.
             </p>
 
             {/* Passion tags */}
