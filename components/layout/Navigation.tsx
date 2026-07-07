@@ -14,7 +14,6 @@ export default function Navigation() {
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
-    { href: '#research', label: 'Research' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -23,7 +22,7 @@ export default function Navigation() {
       setScrolled(window.scrollY > 50);
 
       // Update active section
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'research', 'achievements', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
       for (const section of sections.reverse()) {
         const el = document.getElementById(section);
         if (el && window.scrollY >= el.offsetTop - 200) {

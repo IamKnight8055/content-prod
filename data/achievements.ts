@@ -13,55 +13,38 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    id: "research-iot",
-    role: "Undergraduate Research Assistant",
-    organization: "IoT & Embedded Systems Lab",
-    type: "research",
+    id: "iste-volunteer",
+    role: "Volunteer",
+    organization: "ISTE (Indian Society for Technical Education)",
+    type: "club",
     duration: "Aug 2024 – Present",
     year: "2024",
     description:
-      "Conducting research on energy-efficient edge AI architectures for IoT sensing applications. Focusing on model compression techniques including quantization and pruning for deployment on ARM Cortex-M series microcontrollers.",
+      "Facilitated core hardware and technical sessions, and spearheaded end-to-end logistics for 2 major workshops, streamlining event operations and seamlessly managing a crowd of 300+ attendees.",
     highlights: [
-      "Reduced model size by 8× with <2% accuracy loss using structured pruning",
-      "Published a workshop paper on TFLite Micro deployment optimizations",
-      "Co-mentoring 2 junior students on embedded ML projects",
+      "Facilitated core hardware and technical sessions for workshop attendees",
+      "Spearheaded end-to-end logistics for 2 major workshops",
+      "Managed crowd flow and event operations for 300+ attendees",
     ],
-    tech: ["TFLite Micro", "C++", "Python", "STM32", "Quantization"],
+    tech: ["Hardware", "Logistics", "Event Management", "Technical Training"],
     color: "#3b82f6",
   },
   {
-    id: "robotics-club",
-    role: "Technical Lead — Robotics Club",
-    organization: "IEEE Student Branch",
+    id: "vj-teatro-dp",
+    role: "Director of Photography & Core Member",
+    organization: "VJ Teatro",
     type: "club",
-    duration: "Jan 2024 – Present",
+    duration: "Aug 2024 – Present",
     year: "2024",
     description:
-      "Leading the autonomous systems division of the college robotics club. Responsible for designing and building competition robots, mentoring a team of 10 members, and organizing hands-on workshops on ROS2 and embedded systems.",
+      "Managed event operations and coordination for VJ Teatro during Sintillashunz 2026; currently serving as the Director of Photography for the club, handling cinematography and camera work for upcoming short films and scene recreation projects.",
     highlights: [
-      "Led team to 2nd place in Inter-College Robotics Competition 2024",
-      "Organized 3 workshops on ROS2, PCB Design, and FPGA basics",
-      "Built custom omnidirectional robot with real-time path planning",
+      "Managed event operations and coordination during Sintillashunz 2026",
+      "Handled cinematography and camera work for upcoming short films",
+      "Directed camera work and scene recreation projects for the drama club",
     ],
-    tech: ["ROS2", "Python", "Arduino", "PCB Design", "Computer Vision"],
+    tech: ["Cinematography", "Camera Work", "Event Operations", "Coordination"],
     color: "#8b5cf6",
-  },
-  {
-    id: "internship-embedded",
-    role: "Embedded Software Intern",
-    organization: "TechVista Systems Pvt. Ltd.",
-    type: "internship",
-    duration: "May 2024 – Jul 2024",
-    year: "2024",
-    description:
-      "Worked on firmware development for industrial IoT gateway devices. Implemented MQTT communication protocol for device telemetry and developed a custom bootloader for OTA firmware updates on STM32-based hardware.",
-    highlights: [
-      "Developed OTA update system reducing field maintenance visits by 40%",
-      "Implemented secure MQTT with TLS 1.3 for device-cloud communication",
-      "Optimized RTOS task scheduling reducing power consumption by 22%",
-    ],
-    tech: ["STM32", "FreeRTOS", "MQTT", "C", "Python", "TLS/SSL"],
-    color: "#06b6d4",
   },
 ];
 
@@ -75,81 +58,8 @@ export interface Achievement {
   color: string;
 }
 
-export const achievements: Achievement[] = [
-  {
-    id: "hack-1",
-    title: "1st Place — Hardware Hackathon",
-    event: "TechFest 2025 — IIT Bombay",
-    year: "2025",
-    description:
-      "Built a real-time wildfire detection system using thermal imaging and edge AI in 36 hours. Won ₹1,00,000 prize.",
-    type: "hackathon",
-    color: "#f59e0b",
-  },
-  {
-    id: "robotics-2nd",
-    title: "2nd Place — Autonomous Robotics",
-    event: "Inter-College Robotics Competition 2024",
-    year: "2024",
-    description:
-      "Designed and deployed an autonomous line-following robot with real-time obstacle avoidance.",
-    type: "competition",
-    color: "#8b5cf6",
-  },
-  {
-    id: "paper-published",
-    title: "Workshop Paper Accepted",
-    event: "IEEE ANTS 2024 Workshop",
-    year: "2024",
-    description:
-      "Paper on 'Quantization-Aware Training for Edge Cardiac Monitoring' accepted at IEEE ANTS 2024 workshop proceedings.",
-    type: "award",
-    color: "#3b82f6",
-  },
-];
+export const achievements: Achievement[] = [];
 
-export const stats = [
-  { label: "Projects Built", value: 25, suffix: "+" },
-  { label: "GitHub Commits", value: 1200, suffix: "+" },
-  { label: "Lines of Code", value: 50, suffix: "K+" },
-  { label: "Competitions Won", value: 4, suffix: "" },
-];
+export const stats: { label: string; value: number; suffix: string }[] = [];
 
-export const certifications = [
-  {
-    name: "TensorFlow Developer Certificate",
-    issuer: "Google",
-    year: "2024",
-    color: "#f59e0b",
-  },
-  {
-    name: "Embedded Systems Design",
-    issuer: "Coursera – UC Boulder",
-    year: "2024",
-    color: "#3b82f6",
-  },
-  {
-    name: "PCB Design Professional",
-    issuer: "Udemy / KiCad",
-    year: "2023",
-    color: "#10b981",
-  },
-  {
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    year: "2025",
-    color: "#f97316",
-  },
-  {
-    name: "ROS2 Humble Certification",
-    issuer: "The Construct",
-    year: "2024",
-    color: "#8b5cf6",
-  },
-  {
-    name: "NPTEL: Digital VLSI Design",
-    issuer: "IIT Madras",
-    year: "2024",
-    color: "#06b6d4",
-  },
-];
+export const certifications: { name: string; issuer: string; year: string; color: string }[] = [];

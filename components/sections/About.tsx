@@ -4,19 +4,19 @@ import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useHelpers';
 
 const highlights = [
-  { label: 'Focus Area', value: 'Embedded AI & IoT Systems' },
-  { label: 'University', value: 'ECE Department, India' },
+  { label: 'Focus Area', value: 'Electronics & Communication' },
+  { label: 'University', value: 'VNR VJIET' },
   { label: 'Year', value: '2nd Year Undergraduate' },
-  { label: 'Based In', value: 'India 🇮🇳' },
+  { label: 'Based In', value: 'Hyderabad, India 🇮🇳' },
 ];
 
 const passions = [
-  'Making hardware smarter with AI',
-  'FPGA & custom silicon design',
-  'Open-source embedded projects',
-  'Competitive robotics',
-  'Signal processing research',
-  'Teaching & mentoring peers',
+  'Bioelectronic sensing & instrumentation',
+  'Circuit simulation & design',
+  'Control systems & signal processing',
+  'Cinematography & photography',
+  'Embedded systems prototyping',
+  'Technical workshops & training',
 ];
 
 export default function AboutSection() {
