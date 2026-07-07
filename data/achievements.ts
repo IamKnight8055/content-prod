@@ -36,12 +36,11 @@ export const experiences: Experience[] = [
     type: "club",
     duration: "Aug 2024 – Present",
     year: "2024",
-    description:
-      "Managed event operations and coordination for VJ Teatro during Sintillashunz 2026; currently serving as the Director of Photography for the club, handling cinematography and camera work for upcoming short films and scene recreation projects.",
+    description: "Orchestrated event operations and coordination for VJ Teatro during the Sintillashunz 2026 festival, and now serve as Director of Photography, leading cinematography and camera work for upcoming short films and scene recreation projects.",
     highlights: [
-      "Managed event operations and coordination during Sintillashunz 2026",
-      "Handled cinematography and camera work for upcoming short films",
-      "Directed camera work and scene recreation projects for the drama club",
+      "Coordinated large-scale event operations for Sintillashunz 2026, ensuring seamless execution",
+      "Directed cinematography and camera production for upcoming short films",
+      "Led scene recreation initiatives, overseeing visual storytelling for the drama club"
     ],
     tech: ["Cinematography", "Camera Work", "Event Operations", "Coordination"],
     color: "#8b5cf6",
