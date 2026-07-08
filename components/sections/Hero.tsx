@@ -294,9 +294,7 @@ export default function HeroSection() {
             className="text-display-2xl font-display text-white mb-4"
           >
             Pranjal{' '}
-            <span className="gradient-text-blue text-glow-blue">
-              Krishnanand
-            </span>
+            Krishnanand
           </motion.h1>
 
           {/* Typewriter role */}
