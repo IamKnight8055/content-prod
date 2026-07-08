@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import CustomCursor from "@/components/effects/CustomCursor";
 import Navigation from "@/components/layout/Navigation";
+import StickyNavBar from "@/components/layout/StickyNavBar";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -66,6 +67,9 @@ export default function RootLayout({
 
         {/* Navigation */}
         <Navigation />
+
+        {/* Sticky vertical section nav (desktop only) */}
+        <StickyNavBar />
 
         {/* Main content */}
         <main id="main-content" tabIndex={-1}>
