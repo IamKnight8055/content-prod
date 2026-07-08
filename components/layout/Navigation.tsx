@@ -59,9 +59,17 @@ export default function Navigation() {
       <header
         className={`fixed top-0 left-0 right-0 z-[9990] transition-all duration-500 ${
           scrolled
-            ? 'glass-strong border-b border-white/5 py-4'
-            : 'py-6 bg-transparent'
+            ? 'border-b py-4'
+            : 'py-6'
         }`}
+        style={{
+          background: scrolled
+            ? 'rgba(15, 23, 42, 0.95)'
+            : 'rgba(15, 23, 42, 0.75)',
+          backdropFilter: 'blur(24px)',
+          WebkitBackdropFilter: 'blur(24px)',
+          borderColor: scrolled ? 'rgba(37, 99, 235, 0.2)' : 'transparent',
+        }}
       >
         <nav
           className="container-xl px-6 flex items-center justify-between"
