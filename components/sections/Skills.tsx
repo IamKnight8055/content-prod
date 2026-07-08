@@ -75,12 +75,9 @@ export default function SkillsSection() {
                     }}
                     className="group"
                   >
-                    <div className="flex justify-between items-center mb-1.5">
+                    <div className="flex items-center mb-1.5">
                       <span className="text-sm font-medium text-zinc-300 group-hover:text-white transition-colors duration-200">
                         {skill.name}
-                      </span>
-                      <span className="text-xs font-mono text-zinc-600 group-hover:text-zinc-400 transition-colors duration-200">
-                        {skill.level}%
                       </span>
                     </div>
                     {/* Progress bar */}
