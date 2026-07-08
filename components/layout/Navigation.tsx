@@ -115,7 +115,7 @@ export default function Navigation() {
             <a
               href="/resume.pdf"
               download
-              className="text-sm font-medium px-4 py-2 rounded-full border border-white/10 text-zinc-300 hover:text-white hover:border-blue-500/50 transition-all duration-300"
+              className="text-sm font-medium px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300"
               id="nav-resume-btn"
             >
               Resume
