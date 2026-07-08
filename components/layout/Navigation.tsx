@@ -79,15 +79,16 @@ export default function Navigation() {
           <a
             href="#hero"
             onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
-            className="font-display font-bold text-lg tracking-tight group"
+            className="flex items-center"
             id="nav-logo"
             aria-label="Pranjal Krishnanand - Home"
           >
-            <span className="gradient-text-blue">PK</span>
-            <span className="text-white/20 mx-2 font-light">|</span>
-            <span className="text-text-secondary text-sm font-normal hidden sm:inline">
-              pranjalkrishnanand.xyz
-            </span>
+            <img
+              src="/PK183_LOGO.png"
+              alt="PK183 logo"
+              height={44}
+              style={{ height: '44px', width: 'auto', display: 'block' }}
+            />
           </a>
 
           {/* Desktop Nav */}
