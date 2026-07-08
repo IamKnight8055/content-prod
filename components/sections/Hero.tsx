@@ -284,7 +284,7 @@ export default function HeroSection() {
               className="text-label text-blue-400 border border-blue-500/30 rounded-full px-4 py-1.5 inline-block"
               style={{ background: 'rgba(37, 99, 235, 0.08)' }}
             >
-              19-year-old ECE Student · Building the future
+              BUILDING WHERE ELECTRONS MEET INTELLIGENCE
             </span>
           </motion.div>
 
