@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import SiliconWaferName from '@/components/effects/SiliconWaferName';
 
 // ─── PCB Circuit Canvas Animation ───────────────────────────────────────────
 function CircuitCanvas() {
@@ -288,14 +289,10 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Name */}
-          <motion.h1
-            variants={item}
-            className="text-display-2xl font-display text-white mb-4"
-          >
-            Pranjal{' '}
-            Krishnanand
-          </motion.h1>
+          {/* Name — Silicon Wafer Typography */}
+          <motion.div variants={item} className="mb-4">
+            <SiliconWaferName />
+          </motion.div>
 
           {/* Typewriter role */}
           <motion.div
