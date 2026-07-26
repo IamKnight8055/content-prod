@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import SiliconWaferName from '@/components/effects/SiliconWaferName';
+
 
 // ─── PCB Circuit Canvas Animation ───────────────────────────────────────────
 function CircuitCanvas() {
@@ -274,13 +274,12 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container-xl px-6 pt-20">
         <motion.div
-          className="max-w-5xl"
           variants={container}
           initial="hidden"
           animate="show"
         >
           {/* Label */}
-          <motion.div variants={item} className="mb-6">
+          <motion.div variants={item} className="mb-5 max-w-5xl">
             <span
               className="text-label text-blue-400 border border-blue-500/30 rounded-full px-4 py-1.5 inline-block"
               style={{ background: 'rgba(37, 99, 235, 0.08)' }}
@@ -289,15 +288,33 @@ export default function HeroSection() {
             </span>
           </motion.div>
 
-          {/* Name — Silicon Wafer Typography */}
-          <motion.div variants={item} className="mb-4">
-            <SiliconWaferName />
+          {/* Name — Aesthetic Typography */}
+          <motion.div variants={item} className="mb-3 w-full">
+            <h1
+              style={{
+                fontFamily: "'Inter', 'DM Sans', 'Outfit', Arial, sans-serif",
+                fontWeight: 800,
+                fontSize: 'clamp(3rem, 11vw, 9rem)',
+                lineHeight: 1.0,
+                letterSpacing: '-0.03em',
+                background: 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 35%, #94a3b8 65%, #cbd5e1 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                margin: 0,
+                padding: 0,
+                userSelect: 'none',
+              }}
+              aria-label="Pranjal Krishnanand"
+            >
+              Pranjal<br />Krishnanand
+            </h1>
           </motion.div>
 
           {/* Typewriter role */}
           <motion.div
             variants={item}
-            className="text-display-md text-zinc-400 mb-8 font-display"
+            className="text-display-md text-zinc-400 mb-8 font-display max-w-5xl"
             aria-live="polite"
             aria-atomic="true"
           >
@@ -320,7 +337,6 @@ export default function HeroSection() {
             <span className="text-cyan-400">systems design</span>. I build
             things that live at the edge — where electrons meet intelligence.
           </motion.p>
-
 
         </motion.div>
       </div>
