@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import CustomCursor from "@/components/effects/CustomCursor";
+
 import Navigation from "@/components/layout/Navigation";
 import StickyNavBar from "@/components/layout/StickyNavBar";
 import Footer from "@/components/layout/Footer";
@@ -61,9 +61,6 @@ export default function RootLayout({
       <body className="bg-[#09090b] text-white antialiased overflow-x-hidden">
         {/* Film grain noise overlay */}
         <div className="noise-overlay" aria-hidden="true" />
-
-        {/* Custom cursor — client only */}
-        <CustomCursor />
 
         {/* Navigation */}
         <Navigation />
