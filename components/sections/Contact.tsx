@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useHelpers';
+import ResumeModal from '@/components/ui/ResumeModal';
 
 const socials = [
   {
@@ -41,6 +42,7 @@ export default function ContactSection() {
   const { ref, inView } = useInView(0.1);
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -56,6 +58,7 @@ export default function ContactSection() {
   };
 
   return (
+    <>
     <section
       id="contact"
       className="section-padding relative overflow-hidden"
@@ -205,15 +208,14 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* Resume download */}
+            {/* Resume view/download */}
             <div className="glass rounded-2xl p-6">
-              <p className="text-xs text-zinc-500 mb-3 text-label">Download</p>
-              <a
+              <p className="text-xs text-zinc-500 mb-3 text-label">Resume</p>
+              <button
                 id="contact-resume-download"
-                href="/resume.pdf"
-                download
-                className="flex items-center justify-between gap-4 group"
-                aria-label="Download resume PDF"
+                onClick={() => setResumeOpen(true)}
+                className="flex items-center justify-between gap-4 group w-full text-left"
+                aria-label="View and download resume PDF"
               >
                 <div>
                   <p className="font-semibold text-white group-hover:text-blue-300 transition-colors duration-200">
@@ -222,9 +224,12 @@ export default function ContactSection() {
                   <p className="text-xs text-zinc-500 mt-0.5">PDF · Updated 2025</p>
                 </div>
                 <div className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center text-zinc-400 group-hover:border-blue-500/40 group-hover:text-blue-400 transition-all duration-300">
-                  ↓
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 9h6M9 12h6M9 15h4" />
+                  </svg>
                 </div>
-              </a>
+              </button>
             </div>
 
             {/* Availability */}
@@ -241,5 +246,9 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
+
+    {/* Resume Viewer Modal */}
+    <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
+    </>
   );
 }

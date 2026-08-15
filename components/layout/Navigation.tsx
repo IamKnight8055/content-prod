@@ -2,12 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useScrollProgress } from '@/hooks/useHelpers';
+import ResumeModal from '@/components/ui/ResumeModal';
 
 export default function Navigation() {
   const scrollProgress = useScrollProgress();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   const navLinks = [
     { href: '#about', label: 'About' },
@@ -113,14 +115,13 @@ export default function Navigation() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a
-              href="/resume.pdf"
-              download
+            <button
+              onClick={() => setResumeOpen(true)}
               className="text-sm font-medium px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300"
               id="nav-resume-btn"
             >
               Resume
-            </a>
+            </button>
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
@@ -186,6 +187,9 @@ export default function Navigation() {
           </li>
         </ul>
       </div>
+
+      {/* Resume Viewer Modal */}
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </>
   );
 }
